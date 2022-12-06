@@ -1,0 +1,92 @@
+/* Fonts */
+
+@font-face {
+  font-family: 'OpenSansLight';
+  src: url('./assets/all-fonts/OpenSansLight/OpenSansLight.eot');
+  src: url('./assets/all-fonts/OpenSansLight/OpenSansLight.eot') format('embedded-opentype'),
+       url('./assets/all-fonts/OpenSansLight/OpenSansLight.woff2') format('woff2'),
+       url('./assets/all-fonts/OpenSansLight/OpenSansLight.woff') format('woff'),
+       url('./assets/all-fonts/OpenSansLight/OpenSansLight.ttf') format('truetype'),
+       url('./assets/all-fonts/OpenSansLight/OpenSansLight.svg#OpenSansLight') format('svg');
+}
+
+
+/* Colors */
+/* :root { */
+  /* --blue: #4094EF;
+  --black: #262626;
+  --grey: #DBDBDB;
+  --white: #FFFFFF;
+  --red: #DC565B; */
+/* } */
+
+
+/* Global-css */
+body {
+  font-family: "OpenSansLight";
+  font-size: 14px;
+  background: url("./assets/all-images/TopBackground.jpg") no-repeat;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  margin: 0 auto;
+  display: flex;
+}
+
+/* main {
+  width: 100%;
+  max-width: 975px;
+  padding: 70px 20px 40px 20px;
+  margin: 0 auto;
+} */
+
+h1 {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.mask {
+  height: 100%;
+  position: fixed;
+  background-color: var(--white);
+  top: 0;
+  z-index: 5000;
+  transition: 0.6s;
+  align-items: center;
+}
+
+.loader {
+  width: 85px;
+  height: 85px;
+  border: 7px solid #007aff;
+  border-radius: 50%;
+  border-left-color: #62adff;
+  border-bottom-color: #94c4f8;
+  border-right-color: #ffffff;
+  animation: loaderTop 0.8s linear infinite;
+}
+
+@keyframes loaderTop {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hide-loader-top {
+  opacity: 0;
+}
+
+/* .flex {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+} */
+
