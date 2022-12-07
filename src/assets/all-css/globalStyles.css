@@ -18,12 +18,9 @@
 
 /* Colors */
 :root {
-  /* --blue: #4094EF;
-  --black: #262626;
-  --grey: #DBDBDB; */
   --white: #FFFFFF;
   --transparentBlack: #212121f7;
-  /* --red: #DC565B; */
+  --transparentDarkBlack: #080808f5;
 }
 
 
@@ -31,12 +28,12 @@
 body {
   font-family: "OpenSansLight";
   font-size: 14px;
-  background: url("../all-images/TopBackground.jpg") no-repeat;
+  background: url("../all-images/global-img/TopBackground.jpg") no-repeat;
   height: 100vh;
   background-position: center;
   background-size: cover;
   color: var(--white);
-  padding: 0 50px;
+  padding: 0 20px;
 }
 
 h1 {

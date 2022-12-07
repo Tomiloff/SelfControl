@@ -1,9 +1,9 @@
-.appWraper {
+.appWrapper {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1100px;
   height: 90vh;
   display: grid;
-  grid-template-rows: 100px 1fr;
+  grid-template-rows: 110px 1fr;
   grid-template-columns: 1fr 15fr;
   grid-gap: 1px;
   grid-template-areas: 
