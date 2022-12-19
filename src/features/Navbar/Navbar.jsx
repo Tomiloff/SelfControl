@@ -3,13 +3,13 @@ import avatarIcon from '../../assets/all-images/global-img/avatar.png';
 import settingsIcon from '../../assets/all-images/icons/settings.svg';
 import searchIcon from '../../assets/all-images/icons/search.svg';
 import exitIcon from '../../assets/all-images/icons/exit.svg';
-import NavbarItem from '../../components/navbar/NavbarItem';
+import NavbarItem from './NavbarItem';
 
 
 const Navbar = () => {
   return (
     <div className={styles.navbar}>
-      <div className={styles.navbarPanel}>
+      <nav className={styles.navbarPanel}>
         <NavbarItem to={"/profile"} 
                     src={avatarIcon} 
                     alt={"avatar"} 
@@ -22,7 +22,7 @@ const Navbar = () => {
                     src={searchIcon} 
                     alt={"search"} 
                     className={styles.navbarSearch} ></NavbarItem>
-      </div>
+      </nav>
       <div>
       <NavbarItem to={"/login"} 
                     src={exitIcon} 

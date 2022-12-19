@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import Header from "../../features/Header/Header";
+import Header from "../../common/Header/Header";
 import Navbar from "../../features/Navbar/Navbar";
 import Profile from "../../pages/Profile/Profile";
 import styles from './App.module.css';
