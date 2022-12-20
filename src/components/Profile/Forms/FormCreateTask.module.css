@@ -1,0 +1,13 @@
+.taskForm {
+  width: 100%;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.taskForm:focus {
+  background-color: var(--black);
+  border-color: transparent;
+}

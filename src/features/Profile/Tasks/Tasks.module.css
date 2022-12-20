@@ -1,0 +1,17 @@
+.tasks {
+  grid-area: tasks;
+  border-radius: 0 5px 5px 0;
+  background-color: var(--transparentBlack);
+  padding: 20px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.title img {
+  margin-right: 10px;
+}
