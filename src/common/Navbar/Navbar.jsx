@@ -4,6 +4,7 @@ import settingsIcon from '../../assets/all-images/icons/settings.svg';
 import searchIcon from '../../assets/all-images/icons/search.svg';
 import exitIcon from '../../assets/all-images/icons/exit.svg';
 import NavbarItem from './NavbarItem';
+import weatherIcon from "../../assets/all-images/icons/weather.svg";
 
 
 const Navbar = () => {
@@ -22,6 +23,10 @@ const Navbar = () => {
                     src={searchIcon} 
                     alt={"search"} 
                     className={styles.navbarSearch} ></NavbarItem>
+        <NavbarItem to={"/weather"} 
+                    src={weatherIcon} 
+                    alt={"weather"} 
+                    className={styles.navbarWeather} ></NavbarItem>
       </nav>
       <div>
       <NavbarItem to={"/login"} 

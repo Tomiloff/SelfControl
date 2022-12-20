@@ -4,8 +4,9 @@ import { Field, Form, Formik } from "formik";
 
 const FormCreateTask = () => {
 
-  const submit = (values) => {
+  const submit = (values, {resetForm}) => {
     console.log(values);
+    resetForm();
   };
 
   return (

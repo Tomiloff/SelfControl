@@ -28,7 +28,6 @@
 
 .navbarAvatar:hover {
   border-color: var(--white);
-  transition: 0.2s;
 }
 
 .navbarSettings:hover {
@@ -38,10 +37,24 @@
 
 .navbarSearch:hover {
   transform: skew(-30deg, 30deg);
-  transition: 0.4s;
 }
 
 .navbarExit:hover {
   transform: translateX(5px);
-  transition: 0.4s;
+}
+
+.navbarWeather {
+  filter: blur(1px);
+}
+
+.navbarWeather:hover {
+  filter: blur(0);
+}
+
+.navbarAvatar:hover,
+.navbarSearch:hover,
+.navbarExit:hover,
+.navbarWeather:hover
+{
+transition: 0.4s;
 }
