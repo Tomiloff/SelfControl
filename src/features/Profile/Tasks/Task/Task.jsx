@@ -2,7 +2,7 @@ import { Checkbox } from "antd";
 import styles from "./Task.module.css";
 
 
-const Task = ({task}) => {
+const Task = ({text}) => {
 
   const onChange = (e) => {
     console.log(e.target.checked);
@@ -11,7 +11,7 @@ const Task = ({task}) => {
   return (
     <li className={styles.task}>
       <Checkbox onChange={onChange} />
-      <p>{task}</p>
+      <p>{text}</p>
     </li>
   );
 };

@@ -1,9 +1,16 @@
 import styles from "./ButtonChapter.module.css";
 
 
-const ButtonChapter = ({src, name}) => {
+const ButtonChapter = ({id, src, name, setListData}) => {
+  
+  const getListData = (e) => {
+    console.log(e.currentTarget.id)
+    let idElem = e.currentTarget.id;
+    setListData(idElem, true);
+  };
+
   return (
-    <button className={styles.chapter}>
+    <button id={id} className={styles.chapter} onClick={getListData}>
       <img src={src} alt="buttonChapter" />
       <h3>{name}</h3>
     </button>

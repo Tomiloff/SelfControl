@@ -3,7 +3,7 @@ import listsIcon from "../../../assets/all-images/icons/lists.svg";
 import ButtonChapter from "../../../components/Profile/Buttons/ButtonChapter/ButtonChapter";
 
 
-const Lists = ({lists, archive}) => {
+const Lists = ({lists, archive, setListData}) => {
   return (
     <div className={styles.lists}>
         <div className={styles.title}>
@@ -13,7 +13,7 @@ const Lists = ({lists, archive}) => {
         <div className={styles.chapters}>
           {lists.map(({id, name, src}) => {
             return (
-              <ButtonChapter key={id} name={name} src={src} />
+              <ButtonChapter key={id} id={id} name={name} src={src} setListData={setListData} />
             )
           })}
         </div>
