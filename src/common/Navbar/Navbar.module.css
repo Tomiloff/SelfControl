@@ -1,7 +1,7 @@
 .navbar {
   grid-area: navbar;
   background-color: var(--transparentDarkBlack);
-  padding: 30px 10px;
+  padding: 30px 5px;
   border-radius: 5px 0 0 5px;
   display: flex;
   flex-direction: column;
@@ -41,14 +41,6 @@
 
 .navbarExit:hover {
   transform: translateX(5px);
-}
-
-.navbarWeather {
-  filter: blur(1px);
-}
-
-.navbarWeather:hover {
-  filter: blur(0);
 }
 
 .navbarAvatar:hover,

@@ -12,7 +12,7 @@ const FormCreateTask = () => {
   return (
     <Formik initialValues={{task: ""}} onSubmit={submit}>
       <Form>
-        <Field name="task" placeholder="+ Добавьте задачу, нажмите Enter для сохранения" type="text" className={styles.taskForm} />
+        <Field name="task" placeholder="+ Добавьте задачу, нажмите Enter" type="text" className={styles.taskForm} />
       </Form>
     </Formik>
   );

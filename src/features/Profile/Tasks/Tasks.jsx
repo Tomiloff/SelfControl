@@ -2,6 +2,7 @@ import styles from "./Tasks.module.css";
 import tasksIcon from "../../../assets/all-images/icons/tasks.svg";
 import FormCreateTask from "../../../components/Profile/Forms/FormCreateTask";
 import Task from "./Task/Task";
+import indicatorIcon from "../../../assets/all-images/icons/indicator.svg"
 
 
 const Tasks = ({workingArea}) => {
@@ -20,17 +21,16 @@ const Tasks = ({workingArea}) => {
            
             return <Task key={id} text={text} />
           })}
-          {/* <Task task="Купить молоко и хлеб" />
-          <Task task="Забрать заказ" />
-          <Task task="Созвон по работе" /> */}
         </ul>
         </div>
         :
         <div className={styles.tasks}>
-        <div className={styles.title}>
-          <img src={tasksIcon} alt="listIcon" />
-          <h2>Задачи</h2>
-        </div>
+          <div className={styles.title}>
+            <img src={tasksIcon} alt="listIcon" />
+            <h2>Задачи</h2>
+          </div>
+          <img src={indicatorIcon} alt="indicatorIcon" className={styles.indicatorIcon} />
+          <p className={styles.hint}>Выберите раздел из списка, <br/>чтобы посмотреть его детали</p>
         </div>
       }
     </>

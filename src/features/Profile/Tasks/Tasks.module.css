@@ -3,6 +3,7 @@
   border-radius: 0 5px 5px 0;
   background-color: var(--transparentBlack);
   padding: 20px;
+  text-align: center;
 }
 
 .title {
@@ -14,4 +15,15 @@
 
 .title img {
   margin-right: 10px;
+}
+
+.indicatorIcon {
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+.hint {
+  color: var(--gray);
+  font-weight: bold;
+  line-height: 30px;
 }

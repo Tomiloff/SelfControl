@@ -25,8 +25,7 @@ const Navbar = () => {
                     className={styles.navbarSearch} ></NavbarItem>
         <NavbarItem to={"/weather"} 
                     src={weatherIcon} 
-                    alt={"weather"} 
-                    className={styles.navbarWeather} ></NavbarItem>
+                    alt={"weather"} ></NavbarItem>
       </nav>
       <div>
       <NavbarItem to={"/login"} 
