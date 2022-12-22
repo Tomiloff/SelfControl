@@ -6,7 +6,8 @@ import completedIcon from "../../assets/all-images/icons/completed.svg";
 import basketIcon from "../../assets/all-images/icons/basket.svg";
 
 
-const SET_LIST_DATA = "profile/SET_LIST_DATA"
+const SET_LIST_DATA = "profile/SET_LIST_DATA";
+const ADD_TASK = "profile/ADD_TASK";
 
 
 const initialState = {
@@ -110,7 +111,7 @@ const profileReducer = (state = initialState, action) => {
     
       return {
         ...state,
-        workingArea:{
+        workingArea: {
           editMode: action.payload.statusMode,
           id: action.payload.id,
           name: listData.name,
@@ -118,6 +119,30 @@ const profileReducer = (state = initialState, action) => {
           tasks: listData.tasks.map(({id, text}) => ({id, text}))
         }
       };
+
+    case ADD_TASK:  
+      // return {
+      //   ...state,
+      //   ...state.lists,
+      //   ...state.lists[action.payload.id - 1].tasks = [
+      //     ...state.lists[action.payload.id - 1].tasks,
+      //     {
+      //       id: 6,
+      //       text: action.payload.text
+      //     }
+      //   ]
+      // }
+    
+    
+      return {
+        ...state,
+        ...state.lists[action.payload.id - 1].tasks.push(
+          {
+            id: state.lists[action.payload.id - 1].tasks.length + 1,
+            text: action.payload.text
+          }
+        )
+      }
         
     default:
       return state;
@@ -126,6 +151,8 @@ const profileReducer = (state = initialState, action) => {
 
 
 export const setListData = (id, statusMode) => ({type: SET_LIST_DATA, payload:{id, statusMode}}); 
+
+export const addTask = (id, text) => ({type: ADD_TASK, payload:{id, text}});
 
 
 export default profileReducer;
