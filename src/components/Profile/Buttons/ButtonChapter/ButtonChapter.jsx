@@ -1,12 +1,18 @@
 import styles from "./ButtonChapter.module.css";
 
 
-const ButtonChapter = ({id, src, name, setListData}) => {
-  
+const ButtonChapter = ({id, src, name, setListData, setArchiveData}) => {
+
   const getListData = (e) => {
-    console.log(e.currentTarget.id)
-    let idElem = e.currentTarget.id;
-    setListData(idElem, true);
+    const nameSection = e.currentTarget.closest("div").id;
+    const elemId = e.currentTarget.id;
+
+    if (nameSection === "lists") {
+      setListData(elemId, nameSection, true);
+    } 
+    else if (nameSection === "archive") {
+      setArchiveData(elemId, nameSection, true);
+    }
   };
 
   return (

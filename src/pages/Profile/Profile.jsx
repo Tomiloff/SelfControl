@@ -3,14 +3,14 @@ import React from "react";
 import Lists from "../../features/Profile/Lists/Lists";
 import Tasks from "../../features/Profile/Tasks/Tasks";
 import { connect } from "react-redux";
-import { setListData, addTask } from "../../stores/reducers/profile-reducer";
+import { setListData, setArchiveData, addTask, deleteTask } from "../../stores/reducers/profile-reducer";
 
 
-const Profile = ({profile, setListData, addTask}) => {
+const Profile = ({profile, setListData, setArchiveData, addTask, deleteTask}) => {
   return (
     <div className={styles.profile}>
-      <Lists lists={profile.lists} archive={profile.archive} setListData={setListData} />
-      <Tasks workingArea={profile.workingArea} addTask={addTask} setListData={setListData}  />
+      <Lists lists={profile.lists} archive={profile.archive} setListData={setListData} setArchiveData={setArchiveData} />
+      <Tasks workingArea={profile.workingArea} addTask={addTask} setListData={setListData} deleteTask={deleteTask}  />
     </div>
   );
 };
@@ -23,4 +23,4 @@ const mapStateToProps = (state) => {
 };
 
 
-export default connect(mapStateToProps, {setListData, addTask})(Profile);
+export default connect(mapStateToProps, {setListData, setArchiveData, addTask, deleteTask})(Profile);

@@ -1,13 +1,13 @@
 import styles from "./FormCreateTask.module.css";
 import { Field, Form, Formik } from "formik";
-import { useState } from "react";
 
 
 const FormCreateTask = ({id, addTask, setListData}) => {
 
-  const getTask = (values, {resetForm}) => {
+  const getTask = (values, {resetForm, setSubmitting }) => {
+    (!values.task) ?  setSubmitting(false) :
     addTask(id, values.task);
-    setListData(id, true);
+    setListData(id, "lists", true);
     resetForm();
   };
 

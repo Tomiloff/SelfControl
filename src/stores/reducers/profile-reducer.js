@@ -8,6 +8,8 @@ import basketIcon from "../../assets/all-images/icons/basket.svg";
 
 const SET_LIST_DATA = "profile/SET_LIST_DATA";
 const ADD_TASK = "profile/ADD_TASK";
+const SET_ARCHIVE_DATA = "profile/SET_ARCHIVE_DATA";
+const DELETE_TASK = "profile/DELETE_TASK";
 
 
 const initialState = {
@@ -57,7 +59,7 @@ const initialState = {
         },
         {
           id: 3,
-          text: "Слетать в космос"
+          text: "Полёт в космос"
         }
       ]
     },
@@ -83,6 +85,7 @@ const initialState = {
   ],
   workingArea: {
     editMode: false,
+    titleSection: "",
     id: "",
     name: "",
     src: "",
@@ -92,12 +95,32 @@ const initialState = {
     {
       id: 1,
       name: "Выполнено",
-      src: completedIcon
+      src: completedIcon,
+      tasks: [
+        {
+          id: 1,
+          text: "Помыть машину"
+        },
+        {
+          id: 2,
+          text: "Сходить в магазин"
+        }
+      ]
     },
     {
       id: 2,
       name: "Корзина",
-      src: basketIcon
+      src: basketIcon,
+      tasks: [
+        {
+          id: 1,
+          text: "Выбрость мусор"
+        },
+        {
+          id: 2,
+          text: "Прибраться"
+        }
+      ]
     }
   ]
 };
@@ -107,42 +130,48 @@ const profileReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case SET_LIST_DATA:
-      const listData = state.lists.find( ({id}) => id == action.payload.id);
-    
+    case SET_ARCHIVE_DATA:
+
+      let currentData;
+      if (action.payload.nameSection === "lists") {
+        currentData = state.lists.find( ({id}) => id == action.payload.id);
+      }
+      else if (action.payload.nameSection === "archive") {
+        currentData = state.archive.find( ({id}) => id == action.payload.id);
+      }
+      
       return {
         ...state,
         workingArea: {
           editMode: action.payload.statusMode,
+          titleSection: action.payload.nameSection,
           id: action.payload.id,
-          name: listData.name,
-          src: listData.src,
-          tasks: listData.tasks.map(({id, text}) => ({id, text}))
+          name: currentData.name,
+          src: currentData.src,
+          tasks: currentData.tasks.map(({id, text}) => ({id, text}))
         }
       };
 
     case ADD_TASK:  
-      // return {
-      //   ...state,
-      //   ...state.lists,
-      //   ...state.lists[action.payload.id - 1].tasks = [
-      //     ...state.lists[action.payload.id - 1].tasks,
-      //     {
-      //       id: 6,
-      //       text: action.payload.text
-      //     }
-      //   ]
-      // }
-    
-    
+      const currentTasksArr =  state.lists[action.payload.id - 1].tasks;
       return {
         ...state,
-        ...state.lists[action.payload.id - 1].tasks.push(
+        ...currentTasksArr.push(
           {
-            id: state.lists[action.payload.id - 1].tasks.length + 1,
+            id: (!currentTasksArr.length) ? 1 : currentTasksArr[currentTasksArr.length - 1].id + 1,
             text: action.payload.text
           }
         )
       }
+
+      case DELETE_TASK:
+        const taskObj = state.lists[action.payload.listId - 1].tasks.find((el) => el.id === action.payload.taskId);
+        const indexTask = state.lists[action.payload.listId - 1].tasks.indexOf(taskObj);
+                
+        return {
+          ...state,
+          ...state.lists[action.payload.listId - 1].tasks.splice(indexTask, 1),
+        }
         
     default:
       return state;
@@ -150,9 +179,14 @@ const profileReducer = (state = initialState, action) => {
 };
 
 
-export const setListData = (id, statusMode) => ({type: SET_LIST_DATA, payload:{id, statusMode}}); 
+export const setListData = (id, nameSection, statusMode) => ({type: SET_LIST_DATA, payload:{id, nameSection, statusMode}}); 
+
+export const setArchiveData = (id, nameSection, statusMode) => ({type: SET_ARCHIVE_DATA, payload:{id, nameSection, statusMode}});
 
 export const addTask = (id, text) => ({type: ADD_TASK, payload:{id, text}});
+
+export const deleteTask = (taskId, listId) => ({type: DELETE_TASK, payload:{taskId, listId}});
+
 
 
 export default profileReducer;

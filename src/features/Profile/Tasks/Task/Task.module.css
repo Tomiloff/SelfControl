@@ -3,9 +3,15 @@
   align-items: center;
   padding: 15px 0;
   border-bottom: 1px solid var(--gray);
-  font-size: 18px;
+  font-size: 19px;
+  font-weight: bold;
 }
 
 .task label {
   margin-right: 20px;
+}
+
+.task span[class = ant-checkbox-inner]  {
+  width: 24px;
+  height: 24px;
 }
